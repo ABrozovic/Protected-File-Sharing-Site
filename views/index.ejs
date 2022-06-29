@@ -8,15 +8,23 @@
     <title>Document</title>
 </head>
 <body>
-<form action="/upload" method="post" style="display:grid; gap: .5rem;
+<div style="display: flex;justify-content:center; flex-direction: column;
+            align-items: center;text-align: center; min-height: 20vh;">
+    <% if(locals.fileLink != null) { %>
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <p style="font-weight: 600">Your file has been uploaded:</p>
+            <a href="<%= locals.fileLink %>"> <%= locals.fileLink %></a>
+        </div>
+    <% } %>
+    <form action="/upload" method="post" style="min-width: 30%; display:grid; gap: .5rem;
     grid-template-columns: auto 1fr; max-width: 500px;
     margin: 0 auto" enctype="multipart/form-data">
-    <label for="file">File:</label>
-    <input type="file" id="file" name="file" required>
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password">
-    <button style="grid-column: 2 span;" type="submit">Share</button>
-</form>
-
+        <label for="file">File:</label>
+        <input type="file" id="file" name="file" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <button style="grid-column: 2 span;" type="submit">Share</button>
+    </form>
+</div>
 </body>
 </html>
